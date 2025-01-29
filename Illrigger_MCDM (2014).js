@@ -11,7 +11,7 @@ var iFileName = "MCDM_Illrigger.js";
 RequiredSheetVersion("13.2.3");
 
 /*	-SCRIPT AUTHOR NOTE-
-    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePokésimmer (if using 2024 rules).
+    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePokï¿½simmer (if using 2024 rules).
 */
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> //
@@ -385,22 +385,19 @@ ClassList["illrigger"] = {
             source: ["IR", 13],
             minlevel: 6,
             description: desc([
-                "I gain a pool of Infernal Conduit dice (d10). Spent Infernal Conduit die are regained after a",
-                "long rest. As an Action, I can touch another creature and spend 1+ Internal Conduit die. The",
-                "target must make a Constitution save against my Ability DC. The target can willingly fail the",
-                "save. On success, I can then choose to Invigorate or Devour the target. See Pg3 Notes."
+                "I gain a pool of Infernal Conduit dice (d10). As an Action, I can spend 1+ dice and",
+                "touch a creature to have it make a Constitution save (vs Ability DC) to Invigorate or",
+                "Devour it. The target can willingly fail the save. See Pg3 Notes."
             ]),
             toNotesPage: [{
                 name: "Infernal Conduit",
                 page3notes: true,
                 note: [
-                    "\u2022 Invigorate. On failed Infernal Conduit Save, target regains hit points equal to the total I",
-                    "rolled; half on success. I take Necrotic damage equal to the total damage dealt. If I fall to 0 ",
-                    "hit points, I fall unconscious and am stabilized.",
-                    "\u2022 Devour. On failed Infernal Conduit Save, target takes Necrotic damage equal to the total ",
-                    "rolled; half on success. I regain hit points equal to the damage dealt to target. The",
-                    "Necrotic damage cannot be reduced in any way. If used at 11th level, target also gains 1",
-                    "level of exhaustion on failed save. A creature cannot gain > 3 levels of exhaustion this way."
+                    "\u2022 Invigorate. On fail: target regains HP equal to total rolled; half on success",
+                    "I take Necrotic dmg equal to dmg dealt. If I fall to 0 HP, I'm unconscious and stabilized.",
+                    "\u2022 Devour. On fail: target takes Necrotic dmg equal to total rolled; half on success",
+                    "I regain HP equal to the dmg dealt. The dmg cannot be mitigated in any way.",
+                    "At 11th level, target gains 1 lvl of exhaustion on fail (max 3)."
                 ]
             }],
             usages: [0, 0, 0, 0, 0, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10],
@@ -1305,7 +1302,7 @@ SpellsList["maligned weapon"] = {
     duration: "Conc, 1 hr",
     save: "Wis",
     description: "Imbue weapon. Extinguish light in 30f radius. Add 2d6 Necro. on hit. Bns to end early and 30f burst, 4d6 Necro.+frightened on failed Wis Save or half no frightened. Can save at end of each turn.",
-    descriptionFull: "You imbue a weapon you touch with an infernal blessing. Until the spell ends, the weapon extinguishes any mundane sources of light in a 30-foot radius. In addition, attacks made with the weapon deal an extra 2d6 necrotic damage on a hit. If the weapon isn’t already a magic weapon, it becomes one for the duration. As a bonus action on your turn while holding this weapon, you can end the spell early and cause the weapon to emit a burst of dark energy. Each creature of your choice who you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature takes 4d6 necrotic damage and is frightened for 1 minute. On a successful save, a creature takes half as much damage and isn’t frightened. At the end of each of their turns, a frightened creature can make a Wisdom saving throw, ending the effect on themself on a success.",
+    descriptionFull: "You imbue a weapon you touch with an infernal blessing. Until the spell ends, the weapon extinguishes any mundane sources of light in a 30-foot radius. In addition, attacks made with the weapon deal an extra 2d6 necrotic damage on a hit. If the weapon isnï¿½t already a magic weapon, it becomes one for the duration. As a bonus action on your turn while holding this weapon, you can end the spell early and cause the weapon to emit a burst of dark energy. Each creature of your choice who you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature takes 4d6 necrotic damage and is frightened for 1 minute. On a successful save, a creature takes half as much damage and isnï¿½t frightened. At the end of each of their turns, a frightened creature can make a Wisdom saving throw, ending the effect on themself on a success.",
     ritual: false,
 };
 SpellsList["mote of hell"] = {
@@ -1337,7 +1334,7 @@ SpellsList["vengeful blade"] = {
     duration: "Instantaneous",
     save: "",
     description: "Melee wea atk w/cast; hit: If CL5, +1d8 Necro dmg on melee at; if atk or cast before next rnd +1d8 Necro. dmg: +1d8 to both at CL5(1d8&2d8), 11(2d8&3d8), 17(3d8&4d8).",
-    descriptionFull: "You brandish the weapon used in the spell’s casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target  suffers the weapon attack’s normal effects and then radiates a dark aura of energy until the start of your next turn. If the target makes an attack or casts a spell before then, the target takes 1d8 necrotic damage and the spell ends. This spell’s damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 necrotic damage to the target on a hit, and the damage the target takes for making an attack or casting a spell increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+    descriptionFull: "You brandish the weapon used in the spellï¿½s casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target  suffers the weapon attackï¿½s normal effects and then radiates a dark aura of energy until the start of your next turn. If the target makes an attack or casts a spell before then, the target takes 1d8 necrotic damage and the spell ends. This spellï¿½s damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 necrotic damage to the target on a hit, and the damage the target takes for making an attack or casting a spell increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
     ritual: false,
 };
 SpellsList["wall of death"] = {

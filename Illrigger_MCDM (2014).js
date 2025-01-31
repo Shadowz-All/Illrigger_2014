@@ -11,7 +11,7 @@ var iFileName = "MCDM_Illrigger.js";
 RequiredSheetVersion("13.2.3");
 
 /*	-SCRIPT AUTHOR NOTE-
-    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePok�simmer (if using 2024 rules).
+    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePokesimmer (if using 2024 rules).
 */
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> //
@@ -20,7 +20,7 @@ RequiredSheetVersion("13.2.3");
 
 SourceList["MCDM"] = {
     name: "MCDM: The Illrigger Revised",
-    abbreviation: "tIR",
+    abbreviation: "IR",
     date: "2024/12/31",
     group: "MCDM",
     url: "https://www.dndbeyond.com/sources/dnd/tir/the-illrigger-revised",
@@ -1237,7 +1237,7 @@ SpellsList["aura of desecration"] = {
     compMaterial: "",
     duration: "Conc, 10 min",
     save: "Con",
-    description: "Chosen crea's, enter/start 4d6 Necrotic, no hp until start of next turn; save half",
+    description: "Chosen creas, enter/start 4d6 Necrotic, no hp until start of next turn; save half",
     descriptionFull: "Life-defiling energy radiates from you in an aura with a 30 - foot radius. Until spell end, the aura moves with you, centered on you. When any creatures of my choice enters the area or starts its turn there, it must make a Constitution saving throw. On a failed save, a creature takes 4d6 necrotic damage, and can't regain hit points until the start of their next turn. On save, half-damage only.",
     ritual: false,
 };
@@ -1258,7 +1258,7 @@ SpellsList["hell's lash"] = {
     ritual: false,
 };
 SpellsList["hellfire"] = {
-    name: "Hellfire",
+    name: "Hellfire*",
     classes: ["illrigger"],
     source: ["IR", 33],
     level: 0,
@@ -1269,7 +1269,8 @@ SpellsList["hellfire"] = {
     compMaterial: "",
     duration: "Instantaneous",
     save: "Cha",
-    description: "Choose target you can see within range. Cha save or 1d4 Fire plus 1d4 Necro dmg.",
+    description: "Save or 1d4 fire plus 1d4 Necro; +1d4 Fire and Necro at CL 5, 11, & 17.",
+	descriptionCantripDie : "Save or 'CD'd4 fire plus 'CD'd4 Necro",
     descriptionFull: "You create an eruption of smoldering hellfire around a creature you can see within range. The target must succeed on a Charisma saving throw or take 1d4 fire damage plus 1d4 necrotic damage. Both of the spell's damage types increase by 1d4 when you reach 5th level (2d4), 11th level (3d4),and 17th level (4d4).",
     ritual: false,
 };
@@ -1285,7 +1286,7 @@ SpellsList["infernal challenge"] = {
     compMaterial: "",
     duration: "Conc, 1 min",
     save: "Cha",
-    description: "If no ally within 5ft, choose crea in range who can see/hear you. Cha Save or I get +2 AC, target has disadv on atk rolls on creatures other me, Cha Save on first time moving away or speed 0.",
+    description: "No allies in 5ft: 1 crea sav or disadv on atks against others, sav moving away or speed 0, & your AC +2.",
     descriptionFull: "You offer a creature a creature a compelling challenge. If you have no allies within 5 feet of you, choose one creature withing range who can see and hear you. They must succeed on a Charisma saving throw or answer your challenge and fight you. For the duration, you gain a +2 bonus to AC, the target has disadvantage on attack rolls against creatures other than you, and the first time the target tries to move away from you on a turn, the must succeed on a Charismas saving throw or their speed becomes 0 until the start of their next turn. This spell ends if you end your turn more than 30 feet away from the target.",
     ritual: false,
 };
@@ -1301,8 +1302,8 @@ SpellsList["maligned weapon"] = {
     compMaterial: "",
     duration: "Conc, 1 hr",
     save: "Wis",
-    description: "Imbue weapon. Extinguish light in 30f radius. Add 2d6 Necro. on hit. Bns to end early and 30f burst, 4d6 Necro.+frightened on failed Wis Save or half no frightened. Can save at end of each turn.",
-    descriptionFull: "You imbue a weapon you touch with an infernal blessing. Until the spell ends, the weapon extinguishes any mundane sources of light in a 30-foot radius. In addition, attacks made with the weapon deal an extra 2d6 necrotic damage on a hit. If the weapon isn�t already a magic weapon, it becomes one for the duration. As a bonus action on your turn while holding this weapon, you can end the spell early and cause the weapon to emit a burst of dark energy. Each creature of your choice who you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature takes 4d6 necrotic damage and is frightened for 1 minute. On a successful save, a creature takes half as much damage and isn�t frightened. At the end of each of their turns, a frightened creature can make a Wisdom saving throw, ending the effect on themself on a success.",
+    description: "Wpn kills light 30ft +2d6 Necro; bns: end & 30ft brst; sav or 4d6 Necro+Fear, save:1/2 dmg; rpt sav EoT.",
+    descriptionFull: "You imbue a weapon you touch with an infernal blessing. Until the spell ends, the weapon extinguishes any mundane sources of light in a 30-foot radius. In addition, attacks made with the weapon deal an extra 2d6 necrotic damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration. As a bonus action on your turn while holding this weapon, you can end the spell early and cause the weapon to emit a burst of dark energy. Each creature of your choice who you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature takes 4d6 necrotic damage and is frightened for 1 minute. On a successful save, a creature takes half as much damage and isn't frightened. At the end of each of their turns, a frightened creature can make a Wisdom saving throw, ending the effect on themself on a success.",
     ritual: false,
 };
 SpellsList["mote of hell"] = {
@@ -1317,7 +1318,7 @@ SpellsList["mote of hell"] = {
     compMaterial: "piece of sulfur",
     duration: "Conc, 1 min",
     save: "Wis",
-    description: "15ft rad sphere of Hell: magic dark, diff terr, crea start inside 3d6 Fire dmg/blinded; end turn 30ft rad Wis save or 3d6 Psych dmg",
+    description: "15-ft rad sphere: magic dark, diff terr, crea start: 3d6 Fire; end turn 30-ft rad sav or 3d6 Psychic.",
     descriptionFull: "You manifest a pocket of Hell. A 15-foot-radius sphere of darkness, brimstone, and blasting heat appears, centered on a point within range and lasting for the duration. The cloud of hellfire echoes with the cries of damned souls that can be heard by creatures within 30 feet of it. No light, even magical light, can illuminate the cloud, and any creatures fully within the area are blinded. The cloud warps the timescape, making the cloud's area difficult terrain. A creature that starts their turn in the area takes 3d6 fire damage. A creature that ends their turn in the area must succeed on a Wisdom saving throw or take 3d6 psychic damage as the voices of the damned crowd their mind.",
     ritual: false,
 };
@@ -1333,8 +1334,9 @@ SpellsList["vengeful blade"] = {
     compMaterial: "melee weapon worth 1gp",
     duration: "Instantaneous",
     save: "",
-    description: "Melee wea atk w/cast; hit: If CL5, +1d8 Necro dmg on melee at; if atk or cast before next rnd +1d8 Necro. dmg: +1d8 to both at CL5(1d8&2d8), 11(2d8&3d8), 17(3d8&4d8).",
-    descriptionFull: "You brandish the weapon used in the spell�s casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target  suffers the weapon attack�s normal effects and then radiates a dark aura of energy until the start of your next turn. If the target makes an attack or casts a spell before then, the target takes 1d8 necrotic damage and the spell ends. This spell�s damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 necrotic damage to the target on a hit, and the damage the target takes for making an attack or casting a spell increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+    description: "Melee atk with cast; hit: +0d8 Necro; if atk/cast next rnd 1d8 Necro; +1d8 to both at CL5, 11, 17.",
+	descriptionCantripDie : "Melee atk with cast; hit: +'CD-1'd8 Necro; if atk/cast next rnd 'CD'd8 Necro",
+    descriptionFull: "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target  suffers the weapon attack's normal effects and then radiates a dark aura of energy until the start of your next turn. If the target makes an attack or casts a spell before then, the target takes 1d8 necrotic damage and the spell ends. This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 necrotic damage to the target on a hit, and the damage the target takes for making an attack or casting a spell increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
     ritual: false,
 };
 SpellsList["wall of death"] = {
@@ -1349,7 +1351,7 @@ SpellsList["wall of death"] = {
     compMaterial: "chip of onyx",
     duration: "Conc, 1 min",
     save: "Con",
-    description: "60x1x20ft (lxwxh) or 10ft rad 20ft high opaque wall; at cast all in Con save or 4d8 Necro dmg if fail; save halves; One chosen side of wall 4d8 Necro. to all w/i 10ft or inside or entering. Rea to gain temp HP = dmg dealt.",
+    description: "60|1|20(l|w|h)/10ft r wall;all in 4d8 Necro;sav 1/2;enter/end in 10ft bad side same;1 rea: THP=dmg.",
     descriptionFull: "You create a wall of necrotic energy on a surface within range. You can make a wall up to 60 feet long, 20 feet high, and 1 foot thick, or can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration. When the wall appears, each creature in its area must make a Constitution saving throw. A creature takes 4d8 necrotic damage on a failed save, or half as much damage on a successful one. One side of the wall, selected by you when you cast this spell, deals 4d8 necrotic damage to each creature who ends their turn within 10 feet of that  side or inside the wall. A creature takes the same damage when they enter the wall for the first timeon a turn or end their turn there. The other side of the wall deals no damage. Whenever a creature takes damage from the wall, you can use your reaction to gain temporary hit points equal to the amount of damage dealt.",
     ritual: false,
 };

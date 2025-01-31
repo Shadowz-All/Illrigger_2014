@@ -11,7 +11,7 @@ var iFileName = "MCDM_Illrigger.js";
 RequiredSheetVersion("13.2.3");
 
 /*	-SCRIPT AUTHOR NOTE-
-    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePok�simmer (if using 2024 rules).
+    This file should be installed AFTER the other 2024 PHB & DMG scripts made by ThePokesimmer (if using 2024 rules).
 */
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> //
@@ -20,7 +20,7 @@ RequiredSheetVersion("13.2.3");
 
 SourceList["MCDM"] = {
     name: "MCDM: The Illrigger Revised",
-    abbreviation: "tIR",
+    abbreviation: "IR",
     date: "2024/12/31",
     group: "MCDM",
     url: "https://www.dndbeyond.com/sources/dnd/tir/the-illrigger-revised",

@@ -13,6 +13,8 @@ It has since been largely rewritten to fall in line with changes and updates to 
   - Initial upload
 - **2025-01-26:**
   - Minor adjustments
+- **2025-01-31:**
+  - Approved Pull Request to shorten descriptions, adjust Cantrip die description, spell description adjustments.
     
 **Known Bugs:**
 - No known bugs at this time. Will update when any are found.  

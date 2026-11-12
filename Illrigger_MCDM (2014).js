@@ -62,16 +62,18 @@ ClassList["illrigger"] = {
 			range: "30 ft",
 			minlevel: 1,
 			description: desc([
-				"Once per turn, when I hit a target with a weapon attack, I can place a magical seal on a creature within 30 ft of me, or I can use a bonus action to place a seal on a target I can see within range. This seal lasts for 1 minute or until burned. See Notes page."
-			]),
+                "Once per turn, when I hit a target with a weapon attack, I can place a magical seal on a",
+                "creature within 30ft of me, or I can use a bonus action to place a seal on a target I can see",
+                "within range. This seal lasts for 1 minute or until burned. See Pg3 notes.",
+            ]),
 			toNotesPage: [{
 				name: "Baleful Interdict",
-				note: [
+				note: desc([
 					"A creature with one or more seals is Interdicted. Seals you place are invisible to other creatures, but appear to you as glowing glyphs.",
 					"\u2022 Burning Seals. When an Interdicted creature you can see within 30 ft takes damage from any source other than an Illrigger seal, you can burn any number of seals you have placed on them to deal 1d6 Fire or Necrotic damage (choice), per seal, to that creature. This damage is dealt immediately after triggering the damage. Burning a seal does not require an action, and cannot be done while incapacitated. Once a seal is burned, it vanishes.",
 					"   At 5th level (2d6), 11th level (3d6), and 20th level (4d6), your seals deal increased Fire or Necrotic damage per seal.",
 					"\u2022 Interdict Save. Your Interdict Save DC is the same as your Ability DC."
-				],
+				]),
 				page3notes: true
 			}],
 			additional: levels.map(function (n) {
@@ -96,13 +98,11 @@ ClassList["illrigger"] = {
 				}
 			},
 			description: levels.map(function (n) {
-				var descr = [
-					"I know Infernal and can choose two other languages. I can replace one of those two languages once per long rest."
-				];
+				var descr = desc([var descr = desc(["I know Infernal and can choose two other languages. I can replace one of those two\n   languages once per long rest."]);
 				if (n >= 9) {
-					descr.push("At 9th level, I learn another language and gain Adv. on Wis (Insight) checks to determine sincerity and intention.");
-				}
-				return desc(descr);
+					descr += desc(["At 9th level, I learn another language and gain Adv on Wis (Insight)."]);
+                }
+                return descr;
 			}),
 			forkedtongueadv: {
 				vision: [["Adv. on Insight (sincerity & intention)"]],
@@ -186,8 +186,9 @@ ClassList["illrigger"] = {
 			source: [["IR", 12]],
 			minlevel: 2,
 			description: desc([
-				"I learn one Interdict Boon of my choice and gain additional boons as I level. Whenever I gain an Illrigger level, I can replace a boon I know with another."
-			]),
+                "I learn one Interdict Boon of my choice. I gain additional Interdict Boons as I level.",
+                "When I gain an Illrigger Level, I can replace a Boon I know with another."
+            ]),
 			additional: levels.map(function (n) {
 				var count = n < 7 ? 1 : n < 13 ? 2 : n < 18 ? 3 : 4;
 				return count + " Interdict Boon" + (count > 1 ? "s" : "") + " known";
@@ -249,8 +250,11 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 07+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 7; },
 				description: desc([
-					"When I use a bonus action to place or move a seal on a Large or smaller creature, the target must make a Strength save (DC = Ability Save DC) or be pulled 10 ft toward me or Grappled until the end of my next turn."
-				]),
+                    "When I use a Bonus Action to place or move a seal on a Large or smaller creature, the target",
+                    "must make a Strength Saving Throw (no action). On fail, I can pull the target 10ft towards me",
+                    "or cause them to be Grappled until the end of my next turn. Nothing happens on success.",
+                    "The Save DC is my Interdict (Ability) Save DC.",
+                ]),
 				action: [["bonus action", ""]]
 			},
 			"conflagrant channel": {
@@ -267,8 +271,14 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 07+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 7; },
 				description: desc([
-					"As an action, I can expend 1+ seals on a creature within 60 ft (Wis save, can willingly fail). On a failure, I bind to its senses for 1 hour per seal expended. As an action, I can see/hear through it (using its special senses) and use seals/boons through it; it becomes aware and can use an action to repeat the save."
-				]),
+                    "I can use an Action to expend 1+ seals on a creature I can see within 60ft to bind our senses.",
+                    "The creature must make a Wisdom Saving Throw; they can willingly fail. On fail, I am ",
+                    "bound to the targets awareness for a number of hours equal to the amount of seals used. For ",
+                    "the duration, I can use an action to see and hear through the target, using any special senses, ",
+                    "until I use my action to return to my own. I can place or burn seals, and use Interdict Boons ",
+                    "through the target; the target becomes aware. and can use their Action to repeat the saving",
+                    "throw, ending on success. I cannot use my own senses when I am using the target's senses.",
+                ]),
 				action: [["action", ""]]
 			},
 			"shadow shroud": {
@@ -285,8 +295,11 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 07+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 7; },
 				description: desc([
-					"When I burn 1+ seals on an Interdicted creature, I can use my reaction to force chosen creatures within 5 ft of it to make a Dexterity save, taking the same amount and type of damage on a failed save, or half on a success."
-				]),
+                    "When I burn 1+ seals on an Interdicted creature, I can use my Reaction to trigger a Dexterity ",
+                    "Saving throw on each creature I choose within 5ft of the target. On fail, a creature takes the ",
+                    "amount and type of damage the seals dealt to the Interdicted creature. On a success,",
+                    "creature takes half damage."
+                ]),
 				action: [["reaction", ""]]
 			},
 			"vengeful shot": {
@@ -294,8 +307,10 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 07+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 7; },
 				description: desc([
-					"I can expend a seal as a reaction when a creature makes a ranged attack against me or an ally within 30 ft to make a ranged weapon attack against the attacker, dealing extra damage equal to half my Illrigger level on a hit."
-				]),
+                    "I can expend a seal as a Reaction when a creature makes a ranged attack against me, or an ",
+                    "ally I can see within 30ft. I can make a ranged weapon attack against the attacker. If it hits, I ",
+                    "deal extra damage equal to half of my Illrigger level, rounded down."
+                ]),
 				action: [["reaction", ""]]
 			},
 			"dis's onslaught": {
@@ -311,7 +326,7 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"When I place or move a seal, I can teleport to an unoccupied space within 5 ft of the target (no action required)."
+					"When I place or move a seal, I can teleport to an unoccupied space within 5 ft of the target\n   (no action required)."
 				])
 			},
 			"hellish frenzy": {
@@ -319,8 +334,9 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"When I start my turn within 30 ft of an Interdicted creature, I can expend a seal to Frenzy until the start of my next turn: my speed is doubled, I gain +2 AC, and I can make 1 extra attack when taking the Attack action."
-				])
+                    "When I start my turn within 30ft of Interdicted creature, I can expend a seal to Frenzy until the ",
+                    "start of my next turn. While frenzied: my movement is doubled, +2 bonus AC, +1 extra attack\n   with attack action."
+                ]),
 			},
 			"hellsight": {
 				name: "Hellsight",
@@ -336,8 +352,9 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"When I hit an Interdicted creature with a ranged weapon attack, I can expend a seal as a bonus action to reduce its AC by my Proficiency Bonus until the end of my next turn."
-				]),
+                    "When I hit an Interdicted creature with a ranged weapon attack, I can expend a seal as a\n   Bonus Action. " +
+                    "Target takes -AC equal to my Proficiency Bonus until the end of my next turn."
+                ]),
 				action: [["bonus action", ""]]
 			},
 			"iron gaol": {
@@ -345,8 +362,12 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"As an action, I can touch a creature and expend 4 seals to banish it to Hell (Cha save). Natives to Hell or creatures of CR/level 4 or lower remain there; others return after 1 minute (can repeat save as an action)."
-				]),
+                    "As an Action, I can touch a creature and expend 4 seals to send it to Hell. The target must ",
+                    "make a Charisma saving throw. If target is native to Hell, or level <4 or CR is <4, they remain ",
+                    "must find their way out. Otherwise, target banished for 1 minute and reappears into previous ",
+                    "space or nearest unoccupied space. The target can spend it's Action to repeat Save ending",
+                    "effect on success."
+                ]),
 				action: [["action", ""]]
 			},
 			"last word": {
@@ -354,16 +375,20 @@ ClassList["illrigger"] = {
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"When reduced to 0 HP with unplaced seals, I can expend up to 3 seals to explode (3d6 Fire per seal, Dex save for half) to chosen creatures within 30 ft. If at least one takes damage, I regain HP equal to the total rolled."
-				])
+                    "If I have unplaced seals, and my health is reduced to 0, I may spend up to 3 seals to cause an ",
+                    "explosion. 3d6 per seal expended. Each creature I choose within 30ft must make a Dexterity ",
+                    "Saving throw. On fail, creature(s) take Fire damage equal to the total; Half damage on success",
+                    "If at least one creature is damaged, I regain hitpoints equal to the total I rolled."
+                ])
 			},
 			"soul's doom": {
 				name: "Soul's Doom",
 				submenu: "[Interdict Boon 13+]",
 				prereqeval: function (v) { return classes.known.illrigger.level >= 13; },
 				description: desc([
-					"When I use a bonus action to place or move a seal, I can scorch it into the target. For 1 minute, whenever the target takes damage, it takes extra damage equal to my Proficiency Bonus."
-				])
+                    "When I use a Bonus Action to place or move a seal, I can scorch the seals into the target.",
+                    "For 1 min, when target takes damage, they take extra damage equal to my Proficiency Bonus."
+                ])
 			}
 		},
 		"subclassfeature3": {
@@ -379,16 +404,20 @@ ClassList["illrigger"] = {
 			source: [["IR", 13]],
 			minlevel: 6,
 			description: desc([
-				"I gain a pool of d10s. As an action, I can spend 1+ dice and touch a creature to force a Con save (can willingly fail) to Invigorate or Devour it. See Notes page."
-			]),
+                "I gain a pool of Infernal Conduit dice (d10). As an Action, I can spend 1+ dice and",
+                "touch a creature to have it make a Constitution save (vs Ability DC) to Invigorate or",
+                "Devour it. The target can willingly fail the save. See Pg3 Notes."
+            ]),
 			toNotesPage: [{
 				name: "Infernal Conduit",
 				page3notes: true,
 				note: [
-					"\u2022 Invigorate. Target regains HP equal to the total rolled on the dice (half on a successful save). I take necrotic damage equal to the HP restored; if this drops me to 0 HP, I fall unconscious and am stabilized.",
-					"\u2022 Devour. Target takes necrotic damage equal to the total rolled (half on a successful save), and I regain HP equal to the damage dealt. This damage cannot be mitigated in any way.",
-					"   At 11th level, a target that fails its save against Devour also gains 1 level of exhaustion (max 3)."
-				]
+                    "\u2022 Invigorate. On fail: target regains HP equal to total rolled; half on success",
+                    "I take Necrotic dmg equal to dmg dealt. If I fall to 0 HP, I'm unconscious and stabilized.",
+                    "\u2022 Devour. On fail: target takes Necrotic dmg equal to total rolled; half on success",
+                    "I regain HP equal to the dmg dealt. The dmg cannot be mitigated in any way.",
+                    "At 11th level, target gains 1 lvl of exhaustion on fail (max 3)."
+                ]
 			}],
 			additional: levels.map(function (n) {
 				if (n < 6) return "";
@@ -412,8 +441,9 @@ ClassList["illrigger"] = {
 			source: [["IR", 14]],
 			minlevel: 11,
 			description: desc([
-				"When I hit with a weapon attack, I deal an extra 1d8 Cold, Fire, Necrotic, or Poison damage (chosen after a long rest)."
-			]),
+                "When I hit with a weapon attack, I can add an extra 1d8 Cold, Fire, Necrotic, or Poison\n   damage. " +
+                "I can choose a different damage type when I finish a long rest.",
+            ]),
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
@@ -430,8 +460,9 @@ ClassList["illrigger"] = {
 			source: [["IR", 14]],
 			minlevel: 14,
 			description: desc([
-				"Damage from my seals ignores resistances. Once per long rest, I can use a bonus action to regain a seal if I have none remaining."
-			]),
+                "Seal damage ignores target resistance(s).",
+                "Once per long rest, I can use a Bonus Action to regain a seal if I have none remaining."
+            ]),
 			usages: 1,
 			recovery: "long rest",
 			action: [["bonus action", "Regain 1 Seal"]]
@@ -442,7 +473,7 @@ ClassList["illrigger"] = {
 			minlevel: 17,
 			description: desc([
 				"Once per long rest as a bonus action, I gain the following benefits for 10 minutes:",
-				"\u2022 Resistance to fire, cold, and necrotic damage, and a 60 ft fly speed.",
+				"\u2022 Resistance to fire, cold, necrotic damage, and a 60 ft fly speed.",
 				"\u2022 When I use Blood Price, an enemy within 10 ft takes damage equal to the die rolled.",
 				"\u2022 Terrorizing Force deals 2d8 extra damage instead of 1d8.",
 				"\u2022 If I die during this time, my body vanishes in flame (leaving gear) and reforms at full HP in 1d6 days."
@@ -456,16 +487,24 @@ ClassList["illrigger"] = {
 			source: [["IR", 14]],
 			minlevel: 20,
 			description: desc([
-				"Once per long rest as an action, I summon a 50 ft radius hellstorm within 150 ft, choosing Inferno, Pestilence, or Darkness. See Notes page."
-			]),
+                "As an Action, I can summon a hellstorm centered on a point I can see within 150ft.",
+                "I can choose between Inferno, Pestilence, and Darkness to fill a 50ft radius sphere on the\n   point. See Pg3 notes.",
+            ]),
 			toNotesPage: [{
 				name: "Master of Hell",
 				page3notes: true,
 				note: [
-					"\u2022 Inferno. Enemies make a Dex save or take 5d10 Fire + 5d10 Necrotic damage (half on save) and burn for 1 minute (1d10 Fire + 1d10 Necrotic at end of turn until they succeed on a Dex save; nonmagical means can't extinguish).",
-					"\u2022 Pestilence. Enemies make a Con save or take 5d10 Poison + 5d10 Necrotic damage and are Poisoned for 1 minute (half damage and not poisoned on save).",
-					"\u2022 Darkness. Enemies make a Con save or take 10d10 Cold damage (half on save). Hostiles in the area are Blinded for 1 minute or until they leave the area."
-				]
+                    "\u2022 Inferno. Each enemy in the area must make a Dexterity Saving Throw. On a failed save, a ",
+                    "creature takes 5d10 Fire damage plus 5d10 Necrotic damage and burn for 1 minute. On a ",
+                    "successful save, they take half damage, and do not burn. Burning creatures must repeat the",
+                    "save at the end of their turn, taking 1d10 Fire and 1d10 Necrotic damage on a failed save or ",
+                    "ending the effect on success. The fire cannot be extinguished by nonmagical means.",
+                    "\u2022 Pestilence. Each enemy within the 50ft-rad sphere must make a Constitution save. On fail,",
+                    "take 5d10 Poison + 5d10 Necrotic damage and is Poisoned for 1min. On success, take half.",
+                    "\u2022 Darkness. Each enemy within the 50ft-rad sphere must make a Constitution save. On fail,",
+                    "take 10d10 Cold damage; half on save. Hostiles within the area Blinded for 1 min or until they\n   leave the area."
+
+                ]
 			}],
 			usages: 1,
 			recovery: "long rest",
@@ -574,23 +613,23 @@ AddSubClass("illrigger", "architect of ruin", {
 			name: "Invoke Hell",
 			source: [["IR", 22]],
 			minlevel: 3,
-			description: desc([
-				"I gain two Invoke Hell options (Enervating Spell and Spellblade). Once I use either option, I must finish a short or long rest before using Invoke Hell again."
-			]),
+			description: desc(["I gain 2 Invoke Hell options. When I use one of the Invocations, I must finish a short",
+                "rest before using either again."]),
 			usages: 1,
 			recovery: "short rest",
 			"enervatingspell": {
 				name: "Invoke Hell: Enervating Spell",
 				source: [["IR", 18]],
 				description: desc([
-					"When I deal damage with an Illrigger spell, I can expend a seal (no action) to give the target vulnerability to that spell's damage, ignoring resistance or immunity."
-				])
+                    "When I deal damage with an Illrigger spell, I can expend a seal (No Action).",
+                    "The target has vulnerability to that spell's damage, ignoring any resistance or immunity",
+                ]),
 			},
 			"spellblade": {
 				name: "Invoke Hell: Spellblade",
 				source: [["IR", 19]],
 				description: desc([
-					"I can use my action to make both a melee weapon attack and cast an Illrigger spell with a casting time of 1 action."
+					"I can use my action to make both a melee weapon attack and cast an Illrigger spell with a casting\n   time of 1a."
 				]),
 				action: [["action", ""]]
 			},
@@ -628,8 +667,9 @@ AddSubClass("illrigger", "architect of ruin", {
 				name: "Spellbreaker",
 				source: [["IR", 19]],
 				description: desc([
-					"When an Interdicted creature I can see casts a spell, I can use my reaction to burn 1+ seals on it and cast Counterspell without a spell slot at a level equal to the seals burned."
-				]),
+                    "When Interdicted creature I can see casts a spell, I can use my Reaction to burn 1+ seals on",
+                    "them and cast Counterspell without using a spellslot. The spell level is \u003d to \u0023 of seals burnt.",
+                ]),
 				action: [["reaction", "Counterspell"]],
 				spellcastingBonus: [{
 					spells: ["counterspell"],
@@ -641,8 +681,9 @@ AddSubClass("illrigger", "architect of ruin", {
 				name: "Hell Mage",
 				source: [["IR", 19]],
 				description: desc([
-					"When I or an ally within 30 ft succeed on a saving throw against an enemy's spell or magical effect, I can place up to my Proficiency Bonus in seals on that enemy."
-				])
+                    "When I or an ally within 30ft succeed on a saving throw from an enemy's spell or magical effect, I can place 1 or more seals on that enemy.",
+                    "The number of seals I can place is equal to my proficiency bonus",
+                ]),
 			},
 			autoSelectExtrachoices: [{
 				extrachoice: "axiomaticseals",
@@ -660,16 +701,19 @@ AddSubClass("illrigger", "architect of ruin", {
 			source: [["IR", 19]],
 			minlevel: 11,
 			description: desc([
-				"When I cast an Illrigger spell, I can burn two seals on an Interdicted target to impose disadvantage on its saving throw against the spell."
-			])
+                "When I cast a spell I know, I can burn two seals on an Interdicted target to impose\n   disadvantage on their saving throw against the spell.",
+            ]),
 		},
 		"subclassfeature15": {
 			name: "Vile Transmogrification",
 			source: [["IR", 19]],
 			minlevel: 15,
 			description: desc([
-				"Once per long rest as a bonus action, I can expend one spell slot to regain seals equal to the slot's level, or expend seals to regain a spell slot of a level equal to one-third the seals spent."
-			]),
+                "Once per long rest, I can do the following:",
+                "I can use my bonus action to regain seals, or regain spell slots.",
+                "I can expend one spell slot to regain a number of seals equal to that slot's level.",
+                "I may choose to instead expend any number of seals to regain a spell slot equal to one-third\n   that number.",
+            ]),
 			usages: 1,
 			recovery: "long rest",
 			action: [["bonus action", ""]]
@@ -704,7 +748,7 @@ AddSubClass("illrigger", "hellspeaker", {
 				name: "Moloch's Blessing: Persuasion Expertise",
 				description: "",
 				prereqeval: function (v) { return v.skillProfs.indexOf("Persuasion") != -1; },
-				skills: ["Persuasion", "only"]
+				skills: ["Persuasion", "incremental"]
 			},
 			"deception proficiency": {
 				name: "Moloch's Blessing: Deception",
@@ -716,7 +760,7 @@ AddSubClass("illrigger", "hellspeaker", {
 				name: "Moloch's Blessing: Deception Expertise",
 				description: "",
 				prereqeval: function (v) { return v.skillProfs.indexOf("Deception") != -1; },
-				skills: ["Deception", "only"]
+				skills: ["Deception", "incremental"]
 			}
 		},
 		"subclassfeature3.2": {
@@ -724,8 +768,12 @@ AddSubClass("illrigger", "hellspeaker", {
 			source: [["IR", 22]],
 			minlevel: 3,
 			description: desc([
-				"When I use my bonus action to place a seal on a Humanoid, it must make a Cha save or be Charmed for 1 hour (ends if harmed; knows it was charmed afterward). I can also burn seals on other Interdicted Humanoids within 30 ft during the same bonus action to force them to save after taking seal damage."
-			]),
+                "When I use my bonus action to place a seal on a Humanoid, I can attempt to charm them.",
+                "The target must succeed on a Charisma saving throw or be charmed for 1 hr or until my\n   companions or I do anything harmful to them.",
+                "While charmed, the target sees me as friendly. When the charmed condition ends, the target\n   knows they were charmed by me.",
+                "When I use this bonus action, I can burn one or more seals on additional Interdicted\n   Humanoids within 30 ft, attempting to charm those targets as well.",
+                "After taking damage from the burned seals, each of those targets must succeed on a\n   Charisma saving throw or be under the same charmed effect."
+            ]),
 			usages: "Charisma modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
 			recovery: "short rest"
@@ -734,24 +782,22 @@ AddSubClass("illrigger", "hellspeaker", {
 			name: "Invoke Hell",
 			source: [["IR", 22]],
 			minlevel: 3,
-			description: desc([
-				"I gain two Invoke Hell options (Honey-Sweet Blades and Turncoat). Once I use either option, I must finish a short or long rest before using Invoke Hell again."
-			]),
+			description: desc(["I gain 2 Invoke Hell options. When I use one of the Invocations, I must finish a short",
+                "rest before using either again."]),
 			usages: 1,
 			recovery: "short rest",
 			"honeysweetblades": {
 				name: "Invoke Hell: Honey-Sweet Blades",
 				source: [["IR", 22]],
-				description: desc([
-					"When I make an attack against an Interdicted creature, I gain advantage on the attack roll, and if it hits, it becomes a critical hit."
-				])
+				description: desc(["When I make an attack against an Interdicted creature, I gain Advantage on that attack.",
+                    "If the attack hits, it becomes a critical hit."]),
 			},
 			"turncoat": {
 				name: "Invoke Hell: Turncoat",
 				source: [["IR", 23]],
-				description: desc([
-					"As an action, choose up to my Proficiency Bonus in enemies within 60 ft that can hear me. Each must make a Cha save or use its reaction to make a weapon attack against a target of my choice (other than itself)."
-				]),
+				description: desc(["As an action, I can choose a number of enemy creatures, up to my Proficiency Bonus, within\n   60ft that can hear me. "+
+                    "Each target must succeed on a Charisma saving throw or use their\n   Reaction to make a\n   weapon attack against a single target of my choice. The target cannot\n   attack itself."
+                ]),
 				action: [["action", ""]]
 			},
 			autoSelectExtrachoices: [{
@@ -780,8 +826,9 @@ AddSubClass("illrigger", "hellspeaker", {
 				name: "Slippery Ploy",
 				source: [["IR", 23]],
 				description: desc([
-					"When a creature targets me with an attack, spell, or magical effect, I can use my reaction to place a seal on it and force a Cha save; on a fail, it must choose a new target or lose the attack/effect."
-				]),
+                    "When a creature targets me with an attack, spell, or other magical effect, I can place a seal on\n   them as a reaction and force them to make a Charisma saving throw.",
+                    "On a failed save, the creature must choose a new target or lose the attack or effect.",
+                ]),
 				action: [["reaction", ""]]
 			},
 			"incontrovertible": {
@@ -815,8 +862,10 @@ AddSubClass("illrigger", "hellspeaker", {
 			source: [["IR", 23]],
 			minlevel: 11,
 			description: desc([
-				"As a bonus action, a willing creature within 60 ft that can hear me can gain advantage on one attack roll or saving throw and add my Proficiency Bonus. If it hits/succeeds, it gains temp HP equal to my Illrigger level; otherwise, its next attack or save has uncancelable disadvantage."
-			]),
+                "Choose one willing creature within 60ft who can hear me. That creature can choose to gain\n   Advantage on one attack roll or saving throw and add a bonus equal to my\n   Prof Bonus.",
+                "If the attack hits, or the saving roll succeeds, the creature gains temporary hitpoints equal to\n   my Illrigger level. Otherwise, they have Disadvantage on the attack or saving throw roll.",
+                "The Disadvantage can't be canceled or removed. A creature can only make one deal at a time.",
+            ]),
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
@@ -827,8 +876,12 @@ AddSubClass("illrigger", "hellspeaker", {
 			source: [["IR", 23]],
 			minlevel: 15,
 			description: desc([
-				"As an action, a creature I can see within 30 ft makes a Cha save or is banished to Hell for 1 minute (repeats save at end of each turn; 24-hr immunity after). While banished, a friendly devil jurist or horned devil appears in its place under my command."
-			]),
+                "As an action, I can target a creature I can see within 30ft. to make a Charisma saving throw.",
+                "On a fail, the target is banished to Hell for 1 min, returning to the nearest unoccupied space\n   from where they left.",
+                "The creature can repeat the saving throw at the end of each of their turns, ending the effect\n   on a success. Affected creatures cannot be banished in this way for 24 hours.",
+                "If the target is banished, a devil jurist or horned devil appears in their place. They are friendly\n   to you and follow your command for the duration.",
+                "If you successfully banish a creature in this way, this feature can't be used again until you\n   finish a long rest.",
+            ]),
 			usages: 1,
 			recovery: "long rest",
 			action: [["action", ""]]
@@ -854,8 +907,9 @@ AddSubClass("illrigger", "painkiller", {
 			source: [["IR", 24]],
 			minlevel: 3,
 			description: desc([
-				"As an action, I make a weapon attack and choose up to my Proficiency Bonus in willing creatures within 30 ft; each can use its reaction to make a weapon attack or cast a cantrip."
-			]),
+                "As an Action, I can make a weapon attack and choose a number of willing creatures up to my\n   proficiency bonus who I can see within 30 ft.",
+                "Each creature I choose can use a reaction to make a weapon attack or cast a damage-dealing\n   cantrip. Once used, I can't use it again until I finish a rest.",
+            ]),
 			usages: 1,
 			recovery: "short rest",
 			action: [["action", ""]]
@@ -903,16 +957,18 @@ AddSubClass("illrigger", "painkiller", {
 				name: "Telekinetic Seal",
 				source: [["IR", 24]],
 				description: desc([
-					"When a creature I can see moves within 5 ft of me, I can use my reaction to place a seal on it and force a Wis save or be pushed 15 ft or knocked prone (my choice)."
-				]),
+                    "When a creature I can see moves within 5ft of me, I can use my Reaction to place a seal.",
+                    "Target makes a Wisdom saving throw or be: pushed back 15ft or knocked prone (my choice).",
+                ]),
 				action: [["reaction", ""]]
 			},
 			"bythethroat": {
 				name: "By the Throat",
 				source: [["IR", 24]],
 				description: desc([
-					"When I use a bonus action to place or move a seal on a creature up to one size larger than me, it must make a Wis save or be Restrained until the end of its next turn."
-				])
+                    "When I use Bonus Action to place/move seal on crea one size larger than me: they",
+                    "must make Wisdom saving throw or Restrained until end of their next turn."
+                ]),
 			},
 			"dispaterssupremacy": {
 				name: "Dispater's Supremacy",
@@ -937,8 +993,9 @@ AddSubClass("illrigger", "painkiller", {
 			source: [["IR", 24]],
 			minlevel: 11,
 			description: desc([
-				"When an ally within 30 ft drops to 0 HP without being killed outright, I can use my reaction to cause them to drop to 1 HP instead."
-			]),
+                "When an ally within 30ft of me drops to 0 hp without being killed outright, I may use my\n   reaction to cause them to drop to 1 hp instead.",
+                "Once I use this as a Reaction, I can't use it again until I complete a Short/Long rest."
+            ]),
 			usages: 1,
 			recovery: "short rest",
 			action: [["reaction", ""]]
@@ -948,8 +1005,9 @@ AddSubClass("illrigger", "painkiller", {
 			source: [["IR", 25]],
 			minlevel: 15,
 			description: desc([
-				"When I hit an Interdicted creature with a melee attack, I can use my reaction to burn 1 seal to turn the hit into a critical hit and double the burned seal's damage."
-			]),
+                "When I make a melee attack on an Interdicted creature, I can use my Reaction to burn one\n   seal to make it a critical hit. " +
+                "The burned seal dmg doubles. I can do this a number of times\n   equal to my Proficiency Bonus; regain on LR."
+            ]),
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
@@ -1064,9 +1122,7 @@ AddSubClass("illrigger", "sanguine knight", {
 			name: "Bloodstroke",
 			source: [["IR", 26]],
 			minlevel: 11,
-			additional: levels.map(function (n) {
-				return n < 11 ? "" : n + " dmg";
-			}),
+			additional: additional: How('Proficiency Bonus') + " dmg",
 			description: desc([
 				"When an ally with temp HP from Exsanguinate is hit by a melee attack, the attacker takes Cold, Fire, or Necrotic damage (my choice) equal to my Illrigger level."
 			])
@@ -1192,7 +1248,7 @@ AddSubClass("illrigger", "shadowmaster", {
 			]),
 			speed: { allModes: "+10" },
 			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"], ["Adv. on Stealth (Hide)"]],
-			savetxt: { text: ["Dex save vs. area effects: none on success, half on fail"] },
+			savetxt: { text: ["Dex save vs. area effects: none on success, 1\u002f2 on fail"] },
 			advantages: [["Stealth", true]]
 		},
 		"subclassfeature15": {

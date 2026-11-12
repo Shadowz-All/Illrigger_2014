@@ -1413,3 +1413,119 @@ SpellsList["wall of death"] = {
 		"When the wall appears, each creature in its area must make a Constitution saving throw. A creature takes 4d8 necrotic damage on a failed save, or half as much damage on a successful one. One side of the wall, selected by you when you cast this spell, deals 4d8 necrotic damage to each creature who ends their turn within 10 feet of that side or inside the wall. A creature takes the same damage when they enter the wall for the first time on a turn or end their turn there. The other side of the wall deals no damage. Whenever a creature takes damage from the wall, you can use your reaction to gain temporary hit points equal to the amount of damage dealt."
 	]
 };
+
+MagicItemsList["true name"] = {
+	name: "True Name",
+	source: [["IR", 35]],
+	type: "weapon (any)",
+	attunement: true,
+	prerequisite: "Requires attunement by an Illrigger",
+	prereqeval: function (v) {
+		return classes.known.illrigger ? true : false;
+	},
+	description: "When I attune to this weapon, I whisper my true name into it. Whenever I roll an 18, 19, or 20 on an attack roll with this weapon and place a seal on a creature as part of the attack, I can place an additional seal on that creature. Select a rarity variant for additional properties.",
+	descriptionFull: [
+		"This weapon is ornately decorated with elegant details in brimstone and infernal iron. When you attune to this weapon, you must whisper your true name to it. The name sears across the weapon in Infernal runes, then fades.",
+		"The typical True Name, an uncommon item, empowers an illrigger's Baleful Interdict. Whenever you roll an 18, 19, or 20 on your attack roll with this weapon and place a seal on a creature as part of the attack, you can place an additional seal on that creature.",
+		"More powerful variants of True Name gain an additional property depending on rarity:",
+		"\u2022 Rare. You gain a +1 bonus to attack and damage rolls made using the weapon, and the damage dealt by your seals increases by 1d6.",
+		"\u2022 Very Rare. You gain a +2 bonus to attack and damage rolls made using the weapon, and the damage dealt by your seals increases by 2d6. In addition, when you reduce an enemy to 0 hit points, you can choose to regain a seal (no action required). Once you regain a seal in this way, you can't do so again until the following dusk.",
+		"\u2022 Legendary. You gain a +3 bonus to attack and damage rolls made using the weapon, and the damage dealt by your seals increases by 3d6. In addition, when you reduce an enemy to 0 hit points, you can choose to regain two seals and gain temporary hit points equal to your illrigger level (no action required). Once you regain seals and gain temporary hit points in this way, you can't do so again until the following dusk."
+	],
+	chooseGear: {
+		type: "weapon",
+		prefixOrSuffix: "brackets",
+		descriptionChange: ["replace", "weapon"]
+	},
+	choices: ["Uncommon", "Rare", "Very Rare", "Legendary"],
+	"uncommon": {
+		name: "True Name (Uncommon)",
+		rarity: "uncommon",
+		description: "When I roll an 18\u201320 on an attack roll with this weapon and place a seal on a creature as part of the attack, I can place an additional seal on that creature.",
+		calcChanges: {
+			atkAdd: [
+				function (fields, v) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						fields.Description += (fields.Description ? '; ' : '') + '18-20: place +1 seal';
+					}
+				},
+				"If I include 'True Name' in a weapon's name, it notes the 18-20 extra seal property."
+			]
+		}
+	},
+	"rare": {
+		name: "True Name (Rare)",
+		rarity: "rare",
+		description: "I gain a +1 bonus to attack and damage rolls with this weapon, and my seals deal +1d6 damage. When I roll an 18\u201320 on an attack roll with this weapon and place a seal as part of the attack, I can place an additional seal on that creature.",
+		calcChanges: {
+			atkAdd: [
+				function (fields, v) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						fields.Description += (fields.Description ? '; ' : '') + '18-20: place +1 seal; seals +1d6 dmg';
+					}
+				},
+				"If I include 'True Name' in a weapon's name, it notes the 18-20 extra seal and +1d6 seal damage properties."
+			],
+			atkCalc: [
+				function (fields, v, output) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						output.magic += 1;
+					}
+				},
+				"Adds a +1 magic bonus to attack and damage rolls."
+			]
+		}
+	},
+	"very rare": {
+		name: "True Name (Very Rare)",
+		rarity: "very rare",
+		description: "+2 to attack/damage rolls; seals deal +2d6 damage. On an 18\u201320 attack roll that places a seal, I can place +1 seal. Once per dusk, when I reduce an enemy to 0 HP, I can regain 1 seal (no action).",
+		usages: 1,
+		recovery: "dusk",
+		additional: "Regain 1 seal on 0 HP",
+		calcChanges: {
+			atkAdd: [
+				function (fields, v) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						fields.Description += (fields.Description ? '; ' : '') + '18-20: place +1 seal; seals +2d6 dmg';
+					}
+				},
+				"If I include 'True Name' in a weapon's name, it notes the 18-20 extra seal and +2d6 seal damage properties."
+			],
+			atkCalc: [
+				function (fields, v, output) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						output.magic += 2;
+					}
+				},
+				"Adds a +2 magic bonus to attack and damage rolls."
+			]
+		}
+	},
+	"legendary": {
+		name: "True Name (Legendary)",
+		rarity: "legendary",
+		description: "+3 to attack/damage rolls; seals deal +3d6 damage. On an 18\u201320 attack roll that places a seal, I can place +1 seal. Once per dusk, when I reduce an enemy to 0 HP, I can regain 2 seals and gain temp HP equal to my Illrigger level (no action).",
+		usages: 1,
+		recovery: "dusk",
+		additional: "Regain 2 seals + Illrigger lvl THP on 0 HP",
+		calcChanges: {
+			atkAdd: [
+				function (fields, v) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						fields.Description += (fields.Description ? '; ' : '') + '18-20: place +1 seal; seals +3d6 dmg';
+					}
+				},
+				"If I include 'True Name' in a weapon's name, it notes the 18-20 extra seal and +3d6 seal damage properties."
+			],
+			atkCalc: [
+				function (fields, v, output) {
+					if (!v.isSpell && v.theWea && (/true name/i).test(v.WeaponTextName)) {
+						output.magic += 3;
+					}
+				},
+				"Adds a +3 magic bonus to attack and damage rolls."
+			]
+		}
+	}
+};

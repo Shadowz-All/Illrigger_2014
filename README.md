@@ -15,6 +15,8 @@ It has since been largely rewritten to fall in line with changes and updates to 
   - Minor adjustments
 - **2025-01-31:**
   - Approved Pull Request to shorten descriptions, adjust Cantrip die description, spell description adjustments.
+- **2026-11-11:**
+  - Update to v14 and uploaded v24.   
     
 **Known Bugs:**
 - No known bugs at this time. Will update when any are found.  

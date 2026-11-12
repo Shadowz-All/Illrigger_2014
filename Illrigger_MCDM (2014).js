@@ -98,7 +98,7 @@ ClassList["illrigger"] = {
 				}
 			},
 			description: levels.map(function (n) {
-				var descr = desc([var descr = desc(["I know Infernal and can choose two other languages. I can replace one of those two\n   languages once per long rest."]);
+				var descr = desc(["I know Infernal and can choose two other languages. I can replace one of those two\n   languages once per long rest."]);
 				if (n >= 9) {
 					descr += desc(["At 9th level, I learn another language and gain Adv on Wis (Insight)."]);
                 }
@@ -1122,7 +1122,7 @@ AddSubClass("illrigger", "sanguine knight", {
 			name: "Bloodstroke",
 			source: [["IR", 26]],
 			minlevel: 11,
-			additional: additional: How('Proficiency Bonus') + " dmg",
+			additional: How('Proficiency Bonus') + " dmg",
 			description: desc([
 				"When an ally with temp HP from Exsanguinate is hit by a melee attack, the attacker takes Cold, Fire, or Necrotic damage (my choice) equal to my Illrigger level."
 			])
